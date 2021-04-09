@@ -149,7 +149,7 @@ def PlotBand(y_range = [-3,3], show_ = False, size_sca = 20, save_ = False,
 		bar_color.set_ticklabels(color_bar_label)
 		#save .svg 
 		if save_:
-		    plt.savefig('band_color.png', dpi=300, format='svg')
+		    plt.savefig('band_color.png', dpi=300, format='png')
 
 	##bubble type
 	if PlotMod == 'B':
@@ -161,7 +161,7 @@ def PlotBand(y_range = [-3,3], show_ = False, size_sca = 20, save_ = False,
 		plt.legend(fontsize='large')
 		#save .svg 
 		if save_:
-		    plt.savefig('band_bubble.png', dpi=300, format='svg')
+		    plt.savefig('band_bubble.png', dpi=300, format='png')
 
 	##simple band type
 	if PlotMod == 'S':
@@ -198,7 +198,7 @@ def PlotBand(y_range = [-3,3], show_ = False, size_sca = 20, save_ = False,
 		ax.spines['top'].set_linewidth(1)
 		#save .svg
 		if save_:
-		    plt.savefig('band_simple_band.png', dpi=300, format='svg')
+		    plt.savefig('band_simple_band.png', dpi=300, format='png')
 
 	if show_:
 	    plt.show()
@@ -239,7 +239,7 @@ def PlotDos(y_range = [0,3], x_range = [0,8],
     plt.legend(legend_,loc=1,fontsize='large')#handles=[line_p],
     #save .svg 
     if save_:
-        plt.savefig('dos.png', dpi=300, format='svg')
+        plt.savefig('dos.png', dpi=300, format='png')
     if show_:
         plt.show()
 
