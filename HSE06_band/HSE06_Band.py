@@ -151,11 +151,20 @@ def EnergyBand(nbands = 48, effective_kpt = 99, npath=3,
 
 				k_band = energy_eff[:,band]
 
-				for k in range(effective_kpt):
-					k_band_ene = '%.6f' % k_band[k]
-					k_pos = '%.5f' % dis[k]
-					k_tot = '%.3f' % pband_i[0, k, band]
-					f.writelines('    ' + str(k_pos) + '    ' + str(k_band_ene) + '    ' + str(k_tot) + '\n')
+				if band % 2 == 1:
+
+					for k in range(effective_kpt):
+						k_band_ene = '%.6f' % k_band[k]
+						k_pos = '%.5f' % dis[k]
+						k_tot = '%.3f' % pband_i[0, k, band]
+						f.writelines('    ' + str(k_pos) + '    ' + str(k_band_ene) + '    ' + str(k_tot) + '\n')
+
+				if band % 2 == 0:
+					for k in range(effective_kpt):
+						k_band_ene = '%.6f' % k_band[effective_kpt - k - 1]
+						k_pos = '%.5f' % dis[effective_kpt - k - 1]
+						k_tot = '%.3f' % pband_i[0, effective_kpt - k - 1, band]
+						f.writelines('    ' + str(k_pos) + '    ' + str(k_band_ene) + '    ' + str(k_tot) + '\n')
 
 				f.writelines('\n')
 	print('--------------------------------')
