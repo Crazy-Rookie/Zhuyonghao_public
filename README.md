@@ -1,8 +1,9 @@
 # SharingMe_public
 Copy the codes you need and Pose the questions you encountered.
-# Researchgate and Google Scholar
-1. https://www.researchgate.net/profile/Zhu-Yonghao
-2. https://scholar.google.com/citations?hl=zh-CN&user=DGHuVpMAAAAJ
+# Refs
+1. my google scholar: https://scholar.google.com/citations?hl=zh-CN&user=DGHuVpMAAAAJ
+2. my github: https://github.com/yonghao-zhu
+3. my researchgate: https://www.researchgate.net/profile/Zhu-Yonghao 
 # MD_Post-processing
 1. MD_PostPro.py
 # Plotting Scripts
