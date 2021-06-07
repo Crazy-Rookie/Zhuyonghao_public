@@ -10,6 +10,7 @@ Copy the codes you need and Pose the questions you encountered.
 1. NAC Colormap
 2. Band, Dos, and Effective Mass
 3. Plot Time-xxx, such as Time-Total Energy, Time-Temperature, Time-NAC
+4. Plot un-acf, pure-dephasing, and SD
 # HSE06_band
 1. HSE06_kpoints.py
 2. HSE06_Band.py
