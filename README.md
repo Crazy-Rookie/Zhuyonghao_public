@@ -8,10 +8,11 @@ Copy the codes you need and Pose the questions you encountered.
 1. MD_PostPro.py
 # Plotting Scripts
 1. NAC Colormap
-2. Band, Dos, and Effective Mass
-3. Plot Time-xxx, such as Time-Total Energy, Time-Temperature, Time-NAC
-4. Plot un-acf, pure-dephasing, and SD
-5. Plot_Pop
+2. Band Dos
+3. Effective Mass
+4. Plot Time-xxx, such as Time-Total Energy, Time-Temperature, Time-NAC
+5. Plot un-acf, pure-dephasing, and SD
+6. Plot_Pop
 # HSE06_band
 1. HSE06_kpoints.py
 2. HSE06_Band.py
