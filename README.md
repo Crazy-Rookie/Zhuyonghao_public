@@ -7,9 +7,9 @@ Copy the codes you need and Pose the questions you encountered.
 # MD_Post-processing
 1. MD_PostPro.py
 # Plotting Scripts
-1. NAC Colormap
+1. NAC Colormap (Matrix and Bar)
 2. Band Dos
-3. Effective Mass
+3. Effective Mass (test)
 4. Plot Time-xxx, such as Time-Total Energy, Time-Temperature, Time-NAC
 5. Plot un-acf, pure-dephasing, and SD
 6. Plot_Pop
