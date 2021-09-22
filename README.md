@@ -17,3 +17,6 @@ Copy the codes you need and Pose the questions you encountered.
 1. HSE06_kpoints.py
 2. HSE06_Band.py
 3. read_PROCAR.py
+# QE_6.8
+1. graphene band
+2. monolayer MoS2 band
