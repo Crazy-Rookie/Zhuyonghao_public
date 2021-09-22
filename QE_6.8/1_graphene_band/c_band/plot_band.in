@@ -1,0 +1,6 @@
+$BANDS
+	prefix  = 'pw_band'
+	outdir  = './'
+	filband = 'band.dat'
+	lp      = .true.
+/
