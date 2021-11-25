@@ -1,6 +1,6 @@
 # Yonghao Zhu: Sharing_public
 Copy the codes you need and Pose the questions you encountered.
-# Refs
+# If these scripts are helpful, please cite my articles appropriately.  
 1. my google scholar: https://scholar.google.com/citations?hl=zh-CN&user=DGHuVpMAAAAJ
 2. my github: https://github.com/yonghao-zhu
 3. my researchgate: https://www.researchgate.net/profile/Zhu-Yonghao 
