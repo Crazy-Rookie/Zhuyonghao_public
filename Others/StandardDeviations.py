@@ -10,6 +10,7 @@
 #############################
 import CorrectDistance as CD
 import numpy as np
+import math
 #############################
 
 #############################################
@@ -18,9 +19,9 @@ SD_fun['TorF'] = True
 #time_ini/time_fin: including, start 1
 #time_ini is standard. 
 SD_fun['time_ini']  = 1
-SD_fun['time_fin']  = 5900
+SD_fun['time_fin']  = 10
 SD_fun['atom_list'] = [37,    37 ,  148]
-SD_fun['save_avg']  = True  # True or False
+SD_fun['save_avg']  = False  # True or False
 SD_fun['save_time'] = False  # True or False
 #############################################
 
@@ -71,7 +72,7 @@ def StandardDeviations(
 	xdatcar, lattice, atoms = CD.ReadXDATCAR(time_ini = time_ini, time_fin = time_fin,)
 	#xdatcar.shape = (times, atoms, 3)
 
-	pos_new = np.zeros([time_fin-time_ini+1, atoms, 3])
+	distance_1_2,pos_new = np.zeros([time_fin-time_ini+1, atoms, 3]), np.zeros([time_fin-time_ini+1, atoms, 3])
 	#pos_new.shape = (times, atoms, 3) 
 
 	sd_atoms = []; sd_atoms_time = np.zeros([atoms, time_fin-time_ini+1])
@@ -97,12 +98,13 @@ def StandardDeviations(
 
 		distance_ = (pos_time_atom - avg_pos).dot(lattice)
 		distance = np.linalg.norm(distance_, axis=1)
+		distance_2 = distance**2
 		#distance.shape = (times, )
 
 		# print(distance.shape)
 		# print('------------------')
 
-		sd_atoms.append(np.mean(distance))
+		sd_atoms.append(math.sqrt(np.mean(distance_2)))
 
 		if save_avg:
 			with open('SD_atoms.txt', 'a+') as f:
