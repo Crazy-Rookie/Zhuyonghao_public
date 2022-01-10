@@ -31,10 +31,10 @@ Plot_band_fun['size_sca']        = 20                      # int
 Plot_band_fun['show_']           = True                    # plot? True or False
 Plot_band_fun['save_']           = False                   # save? True or False
 Plot_band_fun['lw_']              = 2                      # line width
-Plot_band_fun['y_range']         = [-1.5, 2.5, 1]          # [start, end, step]
+Plot_band_fun['y_range']         = [-2, 2, 1]          # [start, end, step]
 Plot_band_fun['color_bar_label'] = ['${MoS_2}$','${WS_2}$']# NOTE: [blue,red]
 Plot_band_fun['file_P']          = ['WS2.dat','MoS2.dat']  # NOTE: [red,blue]
-Plot_band_fun['highkpt']         = ['Γ','M','K','Γ']       # same with KLABELS file, vaspkit format
+Plot_band_fun['highkpt']         = ['M','K','Γ']       # same with KLABELS file, vaspkit format
 Plot_band_fun['file_B']          = 'BAND.dat'              # vaspkit format
 Plot_band_fun['file_K']          = 'KLABELS'               # vaspkit format
 ################################################################################################################
@@ -147,9 +147,10 @@ def PlotBand(y_range = [-3,3], show_ = False, size_sca = 20, save_ = False,
 		#color bar set,
 		bar_color.set_ticks([min(c),max(c)])
 		bar_color.set_ticklabels(color_bar_label)
+		bar_color.ax.tick_params(labelsize=14)
 		#save .svg 
 		if save_:
-		    plt.savefig('band_color.png', dpi=300, format='png')
+		    plt.savefig('band_color.png', dpi=600, format='png')
 
 	##bubble type
 	if PlotMod == 'B':
@@ -161,7 +162,7 @@ def PlotBand(y_range = [-3,3], show_ = False, size_sca = 20, save_ = False,
 		plt.legend(fontsize='large')
 		#save .svg 
 		if save_:
-		    plt.savefig('band_bubble.png', dpi=300, format='png')
+		    plt.savefig('band_bubble.png', dpi=600, format='png')
 
 	##simple band type
 	if PlotMod == 'S':
@@ -198,7 +199,7 @@ def PlotBand(y_range = [-3,3], show_ = False, size_sca = 20, save_ = False,
 		ax.spines['top'].set_linewidth(1)
 		#save .svg
 		if save_:
-		    plt.savefig('band_simple_band.png', dpi=300, format='png')
+		    plt.savefig('band_simple_band.png', dpi=600, format='png')
 
 	if show_:
 	    plt.show()
@@ -239,7 +240,7 @@ def PlotDos(y_range = [0,3], x_range = [0,8],
     plt.legend(legend_,loc=1,fontsize='large')#handles=[line_p],
     #save .svg 
     if save_:
-        plt.savefig('dos.png', dpi=300, format='png')
+        plt.savefig('dos.png', dpi=600, format='png')
     if show_:
         plt.show()
 
