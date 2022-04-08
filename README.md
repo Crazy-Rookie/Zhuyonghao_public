@@ -8,13 +8,14 @@ https://www.researchgate.net/profile/Zhu-Yonghao
 
 # MD_Post-processing
 1. MD_PostPro.py
+
 # Plotting Scripts
-## NAC ColorMap (Matrix and Bar)
-## Band and Dos
-## Effective Mass (test)
-## Plot Time-xxx, such as Time-Total Energy, Time-Temperature, Time-NAC
-## Plot un-acf, pure-dephasing, and SD
-## Plot_Pop
+1. NAC ColorMap (Matrix and Bar)
+2. Band and Dos
+3. Effective Mass (test)
+4. Plot Time-xxx, such as Time-Total Energy, Time-Temperature, Time-NAC
+5. Plot un-acf, pure-dephasing, and SD
+6. Plot_Pop
 
 # vasp
 ## HSE06_band
@@ -24,15 +25,14 @@ https://www.researchgate.net/profile/Zhu-Yonghao
 
 # QE_6.8
 0. QEkit.py
-## graphene band
-## monolayer MoS2 band
+1. graphene band
+2. monolayer MoS2 band
 
 # cp2k
 0. cp2kit.py
 
 # NACs
-## CalcNACsVasp
-1. job_NAC.sh and job_vasp.sh
+1. CalcNACsVasp: job_NAC.sh and job_vasp.sh
 
 # NA-MD
 0. Tully's FSSH: https://github.com/yonghao-zhu/Tully_FSSH
