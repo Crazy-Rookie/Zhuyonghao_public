@@ -1,7 +1,7 @@
 # Yonghao Zhu: Sharing_public
 Copy the codes you need and Pose the questions you encountered.
-# If these scripts are helpful, please cite my articles appropriately. 
-0. my researchgate: https://www.researchgate.net/profile/Zhu-Yonghao  
+https://www.researchgate.net/profile/Zhu-Yonghao  
+# If these scripts are helpful, please: 
 1. https://doi.org/10.1039/D1TA10788G
 2. https://doi.org/10.1021/acs.jpclett.1c03077
 3. https://doi.org/10.1016/j.nanoen.2019.06.015
@@ -22,3 +22,7 @@ Copy the codes you need and Pose the questions you encountered.
 # QE_6.8
 1. graphene band
 2. monolayer MoS2 band
+# NACs
+1. CalcNACsVasp
+# NA-MD
+0. Tully's FSSH: https://github.com/yonghao-zhu/Tully_FSSH
