@@ -46,20 +46,29 @@ VASPtoXYZ_fun['TorF'] = False # True or False
 #-------------------------------------
 
 GetFinPOS_fun             = {}
-GetFinPOS_fun['TorF']     = False # True or False
-GetFinPOS_fun['log_file'] = 'out.log'
+GetFinPOS_fun['TorF']     = True # True or False
+GetFinPOS_fun['log_file'] = 'cell_opt.log'
 
 #-------------------------------------
 
 Getband_fun = {}
-Getband_fun['TorF']     = True # True or False
-Getband_fun['log_file'] = 'out.log' 
-Getband_fun['fermi']    = -3.816663653783898e-2 # au, grep fermi pw_band.xml
+Getband_fun['TorF']     = False # True or False
+Getband_fun['log_file'] = 'band.log' 
+Getband_fun['fermi']    = -8.324160481667850e-2 # au, grep fermi pw_band.xml
 Getband_fun['K_lable']  = ['G', 'M', 'K', 'G']
 Getband_fun['K_coord']  = [[0.00, 0.00, 0.00],
 						   [0.50, 0.00, 0.00],
 						   [0.3333, 0.3333, 0.00],
 						   [0.00, 0.00, 0.00],]
+
+#-------------------------------------
+
+Getwfn_fun = {}
+# get POSCAR.vasp, copy the infor into wfn files
+Getwfn_fun['TorF']      = False # True or False 
+Getwfn_fun['inputs']    = 'band.in' # band.in or pw.scf (atomic_positions: crystal)
+Getwfn_fun['atom_kind'] = 'Mo S'
+Getwfn_fun['atom_numb'] = '1 2'
 
 ######################################
 def VASPtoXYZ(file_VASP='POSCAR.vasp', file_XYZ='qe.geo'):
@@ -165,6 +174,7 @@ if GetFinPOS_fun['TorF']:
 		GetFinPOS(logfile=GetFinPOS_fun['log_file'], outfile='qe_contcar.geo')
 	else:
 		print('No %s! Exitting...' % GetFinPOS_fun['log_file'])
+
 ######################################
 def Getband(logfile, fermi, K_lable, K_coord):
 
@@ -208,6 +218,9 @@ def Getband(logfile, fermi, K_lable, K_coord):
 			for iii in lines:
 				tmp.append(float(iii))
 		k_energy.append(tmp)
+
+	if len(k_coordinates_c) == 2*len(k_energy):
+		k_coordinates_c = k_coordinates_c[:91]
 
 	if len(k_coordinates_c) == len(k_energy):
 		print('The number of k-points = ', len(k_energy))
@@ -275,3 +288,45 @@ if Getband_fun['TorF']:
 		print('There is no %s!!!' % Getband_fun['log_file'])
 
 ######################################
+def Getwfn(inputs, atom_numb, atom_kind):
+	
+	# read positions from inputs file
+	with open(inputs, 'r') as f:
+		data = f.readlines()
+		for lines in data:
+			if 'CELL_PARAMETERS angstrom' in lines:
+				cell_index = data.index(lines)
+				print('cell_index =',cell_index)
+			if 'nat' in lines:
+				total_atom_num = int(lines.split()[2])
+				print('total_atom_num =', total_atom_num)
+			if 'ATOMIC_POSITIONS crystal' in lines:
+				position_index = data.index(lines)
+				print('position_index =', position_index)
+	
+	lattice = [linecache.getline(inputs, i+cell_index+2) for i in range(3)]
+	
+	position = [linecache.getline(inputs, i+position_index+2)[2:] for i in range(total_atom_num)]
+	
+	# write POSCAR
+	with open('POSCAR.vasp', 'w+') as f:
+		f.writelines('POSCAR'+'\n'+'1.0'+'\n')
+		for i in lattice:
+			f.writelines(i)
+		
+		f.writelines(atom_kind+'\n'+atom_numb+'\n'+'Direct'+'\n')
+		
+		for i in position:
+			f.writelines(i)
+
+if Getwfn_fun['TorF']:
+	print('**********Running Getband!!!**********')
+	if os.path.isfile(Getwfn_fun['inputs']):
+		Getwfn(inputs = Getwfn_fun['inputs'],
+			   atom_kind = Getwfn_fun['atom_kind'],
+			   atom_numb = Getwfn_fun['atom_numb'])
+	else:
+		print('There is no %s or %s!' %(Getwfn_fun['inputs']))
+
+
+
